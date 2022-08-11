@@ -6,12 +6,12 @@ require "feature_proof/version"
 Gem::Specification.new do |spec|
   spec.name          = "feature_proof"
   spec.version       = FeatureProof::VERSION
-  spec.authors       = ["Maksymilian Orzechowski"]
-  spec.email         = ["morzechowski@netkodo.com"]
+  spec.authors       = ["Jaroslaw Wozniak"]
+  spec.email         = ["jwozniak@netkodo.com"]
 
   spec.summary       = %q{Gem}
   spec.description   = %q{gem}
-  spec.homepage      = "https://github.com/Prestran/feature_proof"
+  spec.homepage      = "https://github.com/oyamowiec/feature_proof"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
