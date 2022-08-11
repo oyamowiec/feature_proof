@@ -1,0 +1,21 @@
+<div class="container text-center">
+  <% tmp = FeatureProof::Proof.new FeatureProof.configuration.model, FeatureProof.configuration.field, FeatureProof.configuration.text_to_display %>
+  <% tmp.f_records.each do |record| %>
+      <div class="feature-proof-wrapper item text-center">
+        <%= image_tag record.image, class: "feature-proof-logo img-responsive img-thumbnail" %>
+
+        <%- location = Geokit::Geocoders::RipeGeocoder.geocode(record.read_attribute("last_sign_in_ip").to_s)
+            city = location.city
+            country = location.country_code
+            full_name = record.read_attribute(tmp.f_field.downcase).to_s
+            name = full_name.split(' ')
+        %>
+        <div class="feature-proof-content">
+          <span class="branch-name"> <%= name[0] %> <%- unless city.to_s.empty? and (city.to_s + country.to_s).length < 25 %> from <%= city %><% end %><%- unless country.to_s.empty? and (city.to_s + country.to_s).length < 25 %>, <%= country %><% end %></span>
+          <p>
+            <%= tmp.f_text_to_display%>
+          </p>
+        </div>
+      </div>
+  <% end %>
+</div>
